@@ -35,9 +35,11 @@ public class Compra {
   }
 
   public void imprimirCupomFiscal() {
+    System.out.println("----------------------------------");
     System.out.println("Compra: " + this.numeroCompra);
     System.out.println("Cliente: " + this.cliente.getNomeCompleto());
     System.out.println("Funcionário: " + this.funcionario.getNomeCompleto());
+    System.out.println("----------------------------------");
 
     for (ItemCompra item : this.Itens) {
 

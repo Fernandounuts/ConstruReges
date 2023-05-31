@@ -48,11 +48,13 @@ public class App {
 
     // Mes de Nasc do Cliente
     int mes = sc.nextInt();
+    sc.nextLine();
     dataNascimento.set(Calendar.MONTH, mes);
 
     // Ano de Nasc do Cliente
     System.out.println("Qual foi o ano de seu nascimento?");
     int ano = sc.nextInt();
+    sc.nextLine();
     dataNascimento.set(Calendar.YEAR, ano);
 
     // Dados Cliente
@@ -150,14 +152,14 @@ public class App {
 
     Compra compra = new Compra(cliente, funcionario, 12, dataVenda);
 
-    ItemCompra item1 = new ItemCompra(compra, prod1, 15.0, 52.50);
-    ItemCompra item2 = new ItemCompra(compra, prod2, 35.0, 2.50);
-    ItemCompra item3 = new ItemCompra(compra, prod3, 45.0, 5.50);
+    ItemCompra item1 = new ItemCompra(compra, prod1, 15.0, 8);
+    ItemCompra item2 = new ItemCompra(compra, prod2, 35.0, 8);
+    ItemCompra item3 = new ItemCompra(compra, prod3, 45.0, 8);
 
     compra.adicionarItemCompra(item1);
     compra.adicionarItemCompra(item2);
     compra.adicionarItemCompra(item3);
-    
+
     compra.imprimirCupomFiscal();
 
     // int i = 0;
