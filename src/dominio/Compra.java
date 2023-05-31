@@ -14,7 +14,8 @@ public class Compra {
   private ArrayList<ItemCompra> Itens;
   private double valorTotalCompra;
 
-  public Compra(Cliente cliente,
+  public Compra(
+      Cliente cliente,
       Funcionario funcionario,
       int numeroCompra,
       Calendar dataCompra) {
