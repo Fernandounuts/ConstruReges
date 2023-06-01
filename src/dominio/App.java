@@ -8,7 +8,12 @@ public class App {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-
+    ItemCompra item1;
+    ItemCompra item2;
+    ItemCompra item3;
+    int qtdProduto;
+    int numProd;
+    ItemCompra[] ItemCompras = new ItemCompra[3];
     // Endereço do Cliente
     System.out.println("Bom dia, qual seu logradouro?");
     String logradouro = sc.nextLine();
@@ -138,139 +143,50 @@ public class App {
         "321212",
         "luke@reges.edu.br");
 
-    Produto prod1 = new Produto("Coca Cola", 20, "123456", 3, 8,
-        "Coca Cola", "123", fornecedor);
-    Produto prod2 = new Produto("Guaraná Antartica", 20, "123456", 3, 8,
-        "Coca Cola", "123", fornecedor);
-    Produto prod3 = new Produto("Fanta Laranja", 20, "123456", 3, 8,
-        "Coca Cola", "123", fornecedor);
+    Produto prod1 = new Produto("Saco de cimento", 100, "123456", 15.00, 30.00,
+        "tupi", "123", fornecedor);
+    Produto prod2 = new Produto("Caixa D'água 500 litros", 100, "1245631", 100.00, 225.00,
+        "Fortlev", "12312341", fornecedor);
+    Produto prod3 = new Produto("Cano pvc 25mm 3m", 100, "123451236", 3.00, 10.00,
+        "Krona", "123", fornecedor);
 
     Calendar dataVenda = Calendar.getInstance();
     dataVenda.set(Calendar.YEAR, 2023);
     dataVenda.set(Calendar.MONTH, 04);
     dataVenda.set(Calendar.DAY_OF_MONTH, 02);
 
-    Compra compra = new Compra(cliente, funcionario, 12, dataVenda);
+    Compra compra = new Compra(cliente, funcionario, 25, dataVenda);
 
-    ItemCompra item1 = new ItemCompra(compra, prod1, 15.0, 8);
-    ItemCompra item2 = new ItemCompra(compra, prod2, 35.0, 8);
-    ItemCompra item3 = new ItemCompra(compra, prod3, 45.0, 8);
+    ItemCompras[0] = new ItemCompra(compra, prod1, 15.0, prod1.getValorVenda());
+    ItemCompras[1] = new ItemCompra(compra, prod2, 35.0, prod2.getValorVenda());
+    ItemCompras[2] = new ItemCompra(compra, prod3, 45.0, prod3.getValorVenda());
+    // Pergunta quantidade de objetos que quer ser comprada
+    System.out.println("Quantos objetos você gostaria de comprar (Max de 3)?");
+    int quantidadeDeObjetos = sc.nextInt();
+    sc.nextLine();
+    if (quantidadeDeObjetos < 1 || quantidadeDeObjetos > 3) {
+      System.out.println("Quantidade inválida, escolha entre 1 e 3 objetos, por favor.");
 
-    compra.adicionarItemCompra(item1);
-    compra.adicionarItemCompra(item2);
-    compra.adicionarItemCompra(item3);
+    }
+
+    for (int i = 0; i < quantidadeDeObjetos; i++) {
+      System.out.println("Digite o número do objeto " + i + 1+ ":");
+      numProd = sc.nextInt();
+      sc.nextLine();
+
+      System.out.println("Digite a quantidade de produtos que desejaria comprar");
+      qtdProduto = sc.nextInt();
+      sc.nextLine();
+      // ItemCompras[numProd - 1].setQtd(qtdProduto);
+      ItemCompras[numProd -1].setSubTotal(qtdProduto * ItemCompras[numProd - 1].getValorProduto());
+      compra.adicionarItemCompra(ItemCompras[numProd - 1]);
+    }
+    sc.close();
+    // compra.adicionarItemCompra(ItemCompras[0]);
+    // compra.adicionarItemCompra(ItemCompras[1]);
+    // compra.adicionarItemCompra(ItemCompras[2]);
 
     compra.imprimirCupomFiscal();
 
-    // int i = 0;
-    // while (i < numCompras) {
-    // System.out.println("Digite o número do produto (1, 2 ou 3)");
-    // int numProd = sc.nextInt();
-    // sc.nextLine();
-
-    // switch (numProd) {
-    // case 1:
-
-    // }
-    // }
-
-    // DONE
-    // Endereco endCliente = new Endereco("Trump Tower", "Fiusa", "123",
-    // "Serrana", "SP", "14021615");
-
-    // DONE
-    // Calendar dataNascimento = Calendar.getInstance();
-    // dataNascimento.set(Calendar.YEAR, 1995);
-    // dataNascimento.set(Calendar.MONTH, Calendar.MARCH);
-    // dataNascimento.set(Calendar.DAY_OF_MONTH, 20);
-
-    // DONE
-    // Cliente cliente = new Cliente("Viuva Negra",
-    // "Natasha Romananof",
-    // endCliente,
-    // "8887877",
-    // dataNascimento,
-    // "3351212",
-    // "3212",
-    // "natasha@reges.edu.br",
-    // "121212");
-
-    // DONE
-    // Endereco endFuncionario = new Endereco("Vingadores Tower",
-    // "João Rossi",
-    // "9888",
-    // "Serrana",
-    // "SP",
-    // "14021618");
-
-    // DONE
-    // Calendar dataNasFunc = Calendar.getInstance();
-    // dataNasFunc.set(Calendar.YEAR, 1995);
-    // dataNasFunc.set(Calendar.MONTH, Calendar.MARCH);
-    // dataNasFunc.set(Calendar.DAY_OF_MONTH, 20);
-
-    // DONE
-    // Funcionario funcionario = new Funcionario("Gavião Arqueiro",
-    // "Clinton Barton",
-    // endFuncionario,
-    // "3212121",
-    // dataNasFunc,
-    // "321212",
-    // "321212",
-    // "clint@reges.edu.br",
-    // 4,
-    // 888880,
-    // "Arqueiro",
-    // 80);
-
-    // DONE
-    // Endereco endFornecedor = new Endereco("Reges Tower",
-    // "Olhos d'agua",
-    // "9888",
-    // "Serrana",
-    // "SP",
-    // "14021618");
-
-    // DONE
-    // Calendar dataNasForn = Calendar.getInstance();
-    // dataNasForn.set(Calendar.YEAR, 1995);
-    // dataNasForn.set(Calendar.MONTH, Calendar.MARCH);
-    // dataNasForn.set(Calendar.DAY_OF_MONTH, 20);
-
-    // DONE
-    // Fornecedor fornecedor = new Fornecedor("Gavião Arqueiro",
-    // "Clinton Barton",
-    // endFornecedor,
-    // "3212121",
-    // dataNasFunc,
-    // "321212",
-    // "321212",
-    // "clint@reges.edu.br");
-
-    // DONE
-    // Produto prod1 = new Produto("Cerveja Delirium", 10, "123456", 15, 50,
-    // "Ambev", "123", fornecedor);
-    // Produto prod2 = new Produto("Samba", 88, "a988478", 2, 53, "Ambev", "123",
-    // fornecedor);
-    // Produto prod3 = new Produto("Cerveja Samba", 777, "122121", 35, 70, "Ambev",
-    // "123", fornecedor);
-    // Produto prod4 = new Produto("Cerveja SubZero", 8880, "554546", 55, 80,
-    // "Ambev", "123", fornecedor);
-
-    // DONE
-    // Compra compra = new Compra(cliente, funcionario, 12, dataVenda);
-
-    // DONE
-    // ItemCompra item1 = new ItemCompra(compra, prod1, 15.0, 52.50);
-    // ItemCompra item2 = new ItemCompra(compra, prod2, 35.0, 2.50);
-    // ItemCompra item3 = new ItemCompra(compra, prod3, 45.0, 5.50);
-    // ItemCompra item4 = new ItemCompra(compra, prod4, 55.0, 6.50);
-
-    // compra.adicionarItemCompra(item1);
-    // compra.adicionarItemCompra(item2);
-    // compra.adicionarItemCompra(item3);
-    // compra.adicionarItemCompra(item4);
-
-    // compra.imprimirCupomFiscal();
   }
 }

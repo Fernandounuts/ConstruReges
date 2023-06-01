@@ -14,7 +14,7 @@ public class ItemCompra {
     this.produto = produto;
     this.qtd = qtd;
     this.valorProduto = valorProduto;
-    this.subTotal = qtd * valorProduto;
+    this.subTotal = this.qtd * this.valorProduto;
 
   }
 
@@ -38,4 +38,25 @@ public class ItemCompra {
     return subTotal;
   }
 
+  public void setCompra(Compra compra) {
+    this.compra = compra;
+  }
+
+  public void setProduto(Produto produto) {
+    this.produto = produto;
+  }
+
+  public void setQtd(double qtd) {
+    this.qtd = qtd;
+  }
+
+  public void setValorProduto(double valorProduto) {
+    this.valorProduto = valorProduto;
+  }
+
+  public void setSubTotal(double subTotal) {
+    this.subTotal = subTotal;
+  }
+
+  
 }
