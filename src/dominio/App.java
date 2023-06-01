@@ -8,9 +8,9 @@ public class App {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    ItemCompra item1;
-    ItemCompra item2;
-    ItemCompra item3;
+    // ItemCompra item1;
+    // ItemCompra item2;
+    // ItemCompra item3;
     int qtdProduto;
     int numProd;
     ItemCompra[] ItemCompras = new ItemCompra[3];
@@ -38,23 +38,23 @@ public class App {
     dataNascimento.set(Calendar.DAY_OF_MONTH, dia);
 
     System.out.println("Qual o seu mês de nascimento?");
-    System.out.println("0 = janeiro\n" +
-        "1 = fevereiro\n" +
-        "2 = março\n" +
-        "3 = abril\n" +
-        "4 = maio\n" +
-        "5 = junho\n" +
-        "6 = julho\n" +
-        "7 = agosto\n" +
-        "8 = setembro\n" +
-        "9 = outubro\n" +
-        "10 = novembro\n" +
-        "11 = dezembro");
+    System.out.println("1 = janeiro\n" +
+        "2 = fevereiro\n" +
+        "3 = março\n" +
+        "4 = abril\n" +
+        "5 = maio\n" +
+        "6 = junho\n" +
+        "7 = julho\n" +
+        "8 = agosto\n" +
+        "9 = setembro\n" +
+        "10 = outubro\n" +
+        "11 = novembro\n" +
+        "12 = dezembro");
 
     // Mes de Nasc do Cliente
     int mes = sc.nextInt();
     sc.nextLine();
-    dataNascimento.set(Calendar.MONTH, mes);
+    dataNascimento.set(Calendar.MONTH, mes - 1);
 
     // Ano de Nasc do Cliente
     System.out.println("Qual foi o ano de seu nascimento?");
@@ -63,7 +63,7 @@ public class App {
     dataNascimento.set(Calendar.YEAR, ano);
 
     // Dados Cliente
-    System.out.println("Qual o seu nome?");
+    System.out.println("Qual o seu nome completo?");
     String nome = sc.nextLine();
 
     System.out.println("Qual o seu nome resumido?");
@@ -84,7 +84,7 @@ public class App {
     System.out.println("Digite seu número do cartão fidelidade:");
     String cartFidel = sc.nextLine();
 
-    Cliente cliente = new Cliente(nome, nomeRes, endCliente, telefone, dataNascimento, documento, rgIe, email, cidade);
+    Cliente cliente = new Cliente(nome, nomeRes, endCliente, telefone, dataNascimento, documento, rgIe, email, cartFidel);
 
     // Endereço do Funcionario
     Endereco endFuncionario = new Endereco(
@@ -170,7 +170,7 @@ public class App {
     }
 
     for (int i = 0; i < quantidadeDeObjetos; i++) {
-      System.out.println("Digite o número do objeto " + i + 1+ ":");
+      System.out.println("Digite o número do objeto " + i + 1 + ":");
       numProd = sc.nextInt();
       sc.nextLine();
 
@@ -178,7 +178,7 @@ public class App {
       qtdProduto = sc.nextInt();
       sc.nextLine();
       // ItemCompras[numProd - 1].setQtd(qtdProduto);
-      ItemCompras[numProd -1].setSubTotal(qtdProduto * ItemCompras[numProd - 1].getValorProduto());
+      ItemCompras[numProd - 1].setSubTotal(qtdProduto * ItemCompras[numProd - 1].getValorProduto());
       compra.adicionarItemCompra(ItemCompras[numProd - 1]);
     }
     sc.close();
