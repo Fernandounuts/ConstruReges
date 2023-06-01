@@ -179,6 +179,7 @@ public class App {
       sc.nextLine();
       // ItemCompras[numProd - 1].setQtd(qtdProduto);
       ItemCompras[numProd - 1].setSubTotal(qtdProduto * ItemCompras[numProd - 1].getValorProduto());
+      ItemCompras[numProd - 1].setQtd(qtdProduto);
       compra.adicionarItemCompra(ItemCompras[numProd - 1]);
     }
     sc.close();
