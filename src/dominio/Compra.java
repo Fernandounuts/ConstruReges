@@ -35,9 +35,14 @@ public class Compra {
 	}
 
 	public void imprimirCupomFiscal() {
+		
+		System.out.println("CUPOM FISCAL");
+		System.out.println(
+			"CNPJ/CPF consumidor: " + cliente.getDocumento() + "\n" + 
+			"Nome: " + this.cliente.getNomeCompleto());
+
 		System.out.println("----------------------------------");
 		System.out.println("Compra: " + this.numeroCompra);
-		System.out.println("Cliente: " + this.cliente.getNomeCompleto());
 		System.out.println("Funcionário: " + this.funcionario.getNomeCompleto());
 		System.out.println("----------------------------------");
 

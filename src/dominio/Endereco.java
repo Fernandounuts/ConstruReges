@@ -19,4 +19,21 @@ public class Endereco {
 		this.uf = uf;
 		this.cep = cep;
 	}
+
+	public void getEndereco() {
+		System.out.println(
+			"Rua " +
+			this.logradouro +
+			"." +
+			"N°" +
+			this.numero +
+			"." +
+			this.bairro +
+			"CEP: " +
+			this.cep +
+			this.cidade +
+			"-" +
+			this.uf
+			);
+	}
 }

@@ -3,11 +3,21 @@ package dominio;
 
 import java.util.Calendar;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class App {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		// SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		// Date dataAtual = new Date();
+		// String dataFormatada = sdf.format(dataAtual);
+		Calendar calendario = Calendar.getInstance();
+		Date dataAtual = calendario.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		String dataFormatada = sdf.format(dataAtual);
+
 		// ItemCompra item1;
 		// ItemCompra item2;
 		// ItemCompra item3;
@@ -17,9 +27,9 @@ public class App {
 		// Endereço do Cliente
 		System.out.println("Bom dia, qual seu logradouro?");
 		String logradouro = sc.nextLine();
-		System.out.println("Qual o seu endereço?");
+		System.out.println("Qual o seu bairro?");
 		String end = sc.nextLine();
-		System.out.println("Qual o seu número?");
+		System.out.println("Qual o número de sua casa?");
 		String num = sc.nextLine();
 		System.out.println("Qual a sua cidade?");
 		String cidade = sc.nextLine();
@@ -33,11 +43,10 @@ public class App {
 		// Data de Nascimento do Cliente
 		// Dia de Nasc do Cliente
 		Calendar dataNascimento = Calendar.getInstance();
-		System.out.println("Qual foi o dia de seu nascimento?");
+		System.out.print("Digite o dia de seu aniversário: ");
 		int dia = sc.nextInt();
 		dataNascimento.set(Calendar.DAY_OF_MONTH, dia);
 
-		System.out.println("Qual o seu mês de nascimento?");
 		System.out.println("1 = janeiro\n" +
 				"2 = fevereiro\n" +
 				"3 = março\n" +
@@ -51,40 +60,42 @@ public class App {
 				"11 = novembro\n" +
 				"12 = dezembro");
 
+		System.out.print("Digite o seu mês de nascimento:");
+
 		// Mes de Nasc do Cliente
 		int mes = sc.nextInt();
 		sc.nextLine();
 		dataNascimento.set(Calendar.MONTH, mes - 1);
 
 		// Ano de Nasc do Cliente
-		System.out.println("Qual foi o ano de seu nascimento?");
+		System.out.print("Digite qual foi o ano de seu nascimento: ");
 		int ano = sc.nextInt();
 		sc.nextLine();
 		dataNascimento.set(Calendar.YEAR, ano);
 
 		// Dados Cliente
-		System.out.println("Qual o seu nome completo?");
+		System.out.print("Digite o seu nome completo: ");
 		String nome = sc.nextLine();
 
-		System.out.println("Qual o seu nome resumido?");
-		String nomeRes = sc.nextLine();
+		// System.out.println("Qual o seu nome resumido?");
+		// String nomeRes = sc.nextLine();
 
-		System.out.println("Digite o seu telefone:");
+		System.out.print("Digite o seu número telefone: ");
 		String telefone = sc.nextLine();
 
-		System.out.println("Qual o seu documento?");
+		System.out.print("Digite o seu documento: ");
 		String documento = sc.nextLine();
 
-		System.out.println("Qual seu RGIE?");
+		System.out.print("Digite o seu RG-IE:");
 		String rgIe = sc.nextLine();
 
-		System.out.println("Digite o seu Email:");
+		System.out.print("Digite o seu Email: ");
 		String email = sc.nextLine();
 
-		System.out.println("Digite seu número do cartão fidelidade:");
+		System.out.println("Digite seu número do cartão fidelidade: ");
 		String cartFidel = sc.nextLine();
 
-		Cliente cliente = new Cliente(nome, nomeRes, endCliente, telefone, dataNascimento, documento, rgIe, email,
+		Cliente cliente = new Cliente(nome, null, endCliente, telefone, dataNascimento, documento, rgIe, email,
 				cartFidel);
 
 		// Endereço do Funcionario
@@ -104,12 +115,12 @@ public class App {
 		System.out.println("Digite o nome do funcionário que te atendeu:");
 		String nomeFunc = sc.nextLine();
 
-		System.out.println("Digite o nome resumido do funcionário:");
-		String nomeFuncRes = sc.nextLine();
+		// System.out.println("Digite o nome resumido do funcionário:");
+		// String nomeFuncRes = sc.nextLine();
 
 		Funcionario funcionario = new Funcionario(
 				nomeFunc,
-				nomeFuncRes,
+				null,
 				endFuncionario,
 				"3212121",
 				dataNasFunc,
@@ -171,11 +182,14 @@ public class App {
 		}
 
 		for (int i = 0; i < quantidadeDeObjetos; i++) {
-			System.out.println("Digite o número do objeto " + i + 1 + ":");
+			System.out.println("1: " + "Saco de Cimento tupi. R$30.00");
+			System.out.println("2: " + "Caixa D'água 500 litros. R$225.00");
+			System.out.println("3: " + "Cano pvc 25mm 3m. R$10.00");
+			System.out.print("Digite o número do objeto " + i + 1 + ": ");
 			numProd = sc.nextInt();
 			sc.nextLine();
 
-			System.out.println("Digite a quantidade de produtos que desejaria comprar");
+			System.out.print("Digite a quantidade de produtos que desejaria comprar: ");
 			qtdProduto = sc.nextInt();
 			sc.nextLine();
 			// ItemCompras[numProd - 1].setQtd(qtdProduto);
@@ -188,6 +202,9 @@ public class App {
 		// compra.adicionarItemCompra(ItemCompras[1]);
 		// compra.adicionarItemCompra(ItemCompras[2]);
 
+		System.out.println("----------------------------------");
+		System.out.println("Data: " + dataAtual);
+		System.out.println("----------------------------------");
 		compra.imprimirCupomFiscal();
 
 	}
