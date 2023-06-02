@@ -206,6 +206,7 @@ public class App {
 
 		System.out.println("\n\n\n\n");
 		System.out.println("\t   CUPOM FISCAL");
+		System.out.println("CNPJ: 89.959.090/003-00");
 		System.out.println("----------------------------------");
 		System.out.println("Data: " + dataAtual);
 		System.out.println("----------------------------------");
