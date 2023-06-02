@@ -182,10 +182,12 @@ public class App {
 		}
 
 		for (int i = 0; i < quantidadeDeObjetos; i++) {
-			System.out.println("1: " + "Saco de Cimento tupi. R$30.00");
+			System.out.println("\n==================================");
+			System.out.println("\n1: " + "Saco de Cimento tupi. R$30.00");
 			System.out.println("2: " + "Caixa D'água 500 litros. R$225.00");
-			System.out.println("3: " + "Cano pvc 25mm 3m. R$10.00");
-			System.out.print("Digite o número do objeto " + i + 1 + ": ");
+			System.out.println("3: " + "Cano pvc 25mm 3m. R$10.00\n");
+			System.out.println("==================================");
+			System.out.print("Digite o número do objeto " + (i + 1) + ": ");
 			numProd = sc.nextInt();
 			sc.nextLine();
 
@@ -202,6 +204,8 @@ public class App {
 		// compra.adicionarItemCompra(ItemCompras[1]);
 		// compra.adicionarItemCompra(ItemCompras[2]);
 
+		System.out.println("\n\n\n\n");
+		System.out.println("\t   CUPOM FISCAL");
 		System.out.println("----------------------------------");
 		System.out.println("Data: " + dataAtual);
 		System.out.println("----------------------------------");
