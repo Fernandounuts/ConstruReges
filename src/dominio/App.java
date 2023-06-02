@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ArrayList;
 
 public class App {
 
@@ -24,6 +25,7 @@ public class App {
 		int qtdProduto;
 		int numProd;
 		ItemCompra[] ItemCompras = new ItemCompra[3];
+		ArrayList<ItemCompra> listaDeCompras = new ArrayList<>();
 		// Endereço do Cliente
 		System.out.println("Bom dia, qual seu logradouro?");
 		String logradouro = sc.nextLine();
@@ -172,12 +174,15 @@ public class App {
 		ItemCompras[0] = new ItemCompra(compra, prod1, 15.0, prod1.getValorVenda());
 		ItemCompras[1] = new ItemCompra(compra, prod2, 35.0, prod2.getValorVenda());
 		ItemCompras[2] = new ItemCompra(compra, prod3, 45.0, prod3.getValorVenda());
+		for (ItemCompra item : ItemCompras) {
+			listaDeCompras.add(item);
+		}
 		// Pergunta quantidade de objetos que quer ser comprada
-		System.out.println("Quantos objetos você gostaria de comprar (Max de 3)?");
+		System.out.println("Quantos objetos você gostaria de comprar (Max de "+ listaDeCompras.size() + ")?");
 		int quantidadeDeObjetos = sc.nextInt();
 		sc.nextLine();
-		if (quantidadeDeObjetos < 1 || quantidadeDeObjetos > 3) {
-			System.out.println("Quantidade inválida, escolha entre 1 e 3 objetos, por favor.");
+		if (quantidadeDeObjetos < 1 || quantidadeDeObjetos > listaDeCompras.size()) {
+			System.out.println("Quantidade inválida, escolha entre 1 e " + listaDeCompras.size() + "objetos, por favor.");
 
 		}
 
@@ -206,7 +211,7 @@ public class App {
 
 		System.out.println("\n\n\n\n");
 		System.out.println("\t   CUPOM FISCAL");
-		System.out.println("CNPJ: 89.959.090/003-00");
+		System.out.println("\nCNPJ: 89.959.090/003-00");
 		System.out.println("----------------------------------");
 		System.out.println("Data: " + dataAtual);
 		System.out.println("----------------------------------");
