@@ -186,8 +186,7 @@ public class App {
 		int quantidadeDeObjetos = sc.nextInt();
 		sc.nextLine();
 		if (quantidadeDeObjetos < 1 || quantidadeDeObjetos > listaDeCompras.size()) {
-			System.out
-					.println("Quantidade inválida, escolha entre 1 e " + listaDeCompras.size() + "objetos, por favor.");
+			System.out.println("Quantidade inválida, escolha entre 1 e " + listaDeCompras.size() + "objetos, por favor.");
 
 		}
 
