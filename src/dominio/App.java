@@ -171,18 +171,23 @@ public class App {
 
 		Compra compra = new Compra(cliente, funcionario, 25, dataVenda);
 
-		ItemCompras[0] = new ItemCompra(compra, prod1, 15.0, prod1.getValorVenda());
-		ItemCompras[1] = new ItemCompra(compra, prod2, 35.0, prod2.getValorVenda());
-		ItemCompras[2] = new ItemCompra(compra, prod3, 45.0, prod3.getValorVenda());
-		for (ItemCompra item : ItemCompras) {
-			listaDeCompras.add(item);
-		}
+		// ItemCompras[0] = new ItemCompra(compra, prod1, 15.0, prod1.getValorVenda());
+		// ItemCompras[1] = new ItemCompra(compra, prod2, 35.0, prod2.getValorVenda());
+		// ItemCompras[2] = new ItemCompra(compra, prod3, 45.0, prod3.getValorVenda());
+		listaDeCompras.add(new ItemCompra(compra, prod1, 15.0, prod1.getValorVenda()));
+		listaDeCompras.add(new ItemCompra(compra, prod2, 35.0, prod2.getValorVenda()));
+		listaDeCompras.add(new ItemCompra(compra, prod3, 45.0, prod3.getValorVenda()));
+
+		// for (ItemCompra item : ItemCompras) {
+		// listaDeCompras.add(item);
+		// }
 		// Pergunta quantidade de objetos que quer ser comprada
-		System.out.println("Quantos objetos você gostaria de comprar (Max de "+ listaDeCompras.size() + ")?");
+		System.out.println("Quantos objetos você gostaria de comprar (Max de " + listaDeCompras.size() + ")?");
 		int quantidadeDeObjetos = sc.nextInt();
 		sc.nextLine();
 		if (quantidadeDeObjetos < 1 || quantidadeDeObjetos > listaDeCompras.size()) {
-			System.out.println("Quantidade inválida, escolha entre 1 e " + listaDeCompras.size() + "objetos, por favor.");
+			System.out
+					.println("Quantidade inválida, escolha entre 1 e " + listaDeCompras.size() + "objetos, por favor.");
 
 		}
 
